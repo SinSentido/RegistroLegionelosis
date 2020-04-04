@@ -18,3 +18,17 @@ Es una bacteria ambiental capaz de sobrevivir a un amplio intervalo de condicion
 
 Esta aplicación trata de digitalizar, en medida de lo posible, el registro obligatorio para la prevención y control de la legionelosis según lo dispuesto en el [Real Decreto 865/2003, de 4 de julio](https://www.boe.es/buscar/doc.php?id=BOE-A-2003-14408). Este registro es obligatorio para prácticamente la mayoría de instalaciones que utilicen agua en su funcionamiento y sean de uso colectivo como podrían ser hoteles, restaurantes, hospitales o empresas con torres de refrigeración. 
 Por este motivo se intenta que el registro sea más llevadero al poder hacerlo de manera digital y de esta manera también más accesible y legible para las partes encargadas de su control y seguimiento.
+
+
+## 3. Uso de la aplicación:
+
+La aplicación está destinada a los titulares de las instalaciones o a aquellas empresas encargadas de la gestión de esta tarea si se tratara de empresas externas. Para estos casos se dispone de los documentos correspondientes para la delegación de estos servicios que pueden ser rellenados en la propia aplicación y ser firmados digitalmente. ¿Qué te permite hacer esta app?
+
+* Gestionar las responsabilidades correspondientes según las necesidades de la empresa.
+
+* Gestionar el tipo de instalaciones listadas en el Real Decreto.
+
+* Generar documentos con los datos introducidos.
+
+
+
