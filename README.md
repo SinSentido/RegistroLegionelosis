@@ -15,4 +15,4 @@ Es una bacteria ambiental capaz de sobrevivir a un amplio intervalo de condicion
 
 
 ## 2. Objeto de la aplicación:
-Esta aplicación trata de 
+Esta aplicación trata de digitalizar, en medida de lo posible, el registro obligatorio para la prevención y control de la legionelosis según lo dispuesto en el [Real Decreto 865/2003, de 4 de julio](https://www.boe.es/buscar/doc.php?id=BOE-A-2003-14408).
