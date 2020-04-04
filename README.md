@@ -15,4 +15,6 @@ Es una bacteria ambiental capaz de sobrevivir a un amplio intervalo de condicion
 
 
 ## 2. Objeto de la aplicación:
-Esta aplicación trata de digitalizar, en medida de lo posible, el registro obligatorio para la prevención y control de la legionelosis según lo dispuesto en el [Real Decreto 865/2003, de 4 de julio](https://www.boe.es/buscar/doc.php?id=BOE-A-2003-14408).
+
+Esta aplicación trata de digitalizar, en medida de lo posible, el registro obligatorio para la prevención y control de la legionelosis según lo dispuesto en el [Real Decreto 865/2003, de 4 de julio](https://www.boe.es/buscar/doc.php?id=BOE-A-2003-14408). Este registro es obligatorio para prácticamente la mayoría de instalaciones que utilicen agua en su funcionamiento y sean de uso colectivo como podrían ser hoteles, restaurantes, hospitales o empresas con torres de refrigeración. 
+Por este motivo se intenta que el registro sea más llevadero al poder hacerlo de manera digital y de esta manera también más accesible y legible para las partes encargadas de su control y seguimiento.
