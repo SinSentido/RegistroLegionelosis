@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="content">
+    <!-- logo -->
+    <div class="logo"></div>
 
+
+    <form class="login-form">
+      <!-- user email -->
+      <p class="login-error-message">*El email introducido no es válido</p>
+      <ion-label>Email</ion-label>
+      <ion-input></ion-input>
+
+      <!-- user password -->
+      <p class="login-error-message">*La contraseña no es válida</p>
+      <ion-label>Password</ion-label>
+      <ion-input></ion-input>
+    </form>
+
+    <div class="login-button"><img src="../../../assets/img/loginArrow.png"></div>
+  </div>
+  <div class="go-to-register">REGISTRATE</div>
 </ion-content>

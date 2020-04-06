@@ -1,0 +1,59 @@
+h1{
+  display: block;
+  text-align: center;
+}
+
+.content{
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+  background-color: #29c67b;
+  color: #f2f2f2;
+}
+
+.logo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #b0f4d3;
+  margin-bottom: 5%;
+}
+
+ion-input{
+  margin-bottom: 5%;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.register-form{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.register-button{
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+  margin-top: 5%;
+  padding: 2%;
+  background-color: #024873;
+  color: #white;
+  transform: rotate(45deg);
+}
+
+.register-button img{
+    transform: rotate(-45deg);
+}
+
+.register-error-message{
+  color: #BF8034;
+  font-size: 0.8rem;
+}
+
+.go-to-login{
+  height: 8%;
+  background-color: #024873;
+  text-align: center;
+  color: white;
+}

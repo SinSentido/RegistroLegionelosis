@@ -1,0 +1,59 @@
+h1{
+  display: block;
+  text-align: center;
+}
+
+.content{
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10%;
+  background-color: #024873;
+  color: white;
+}
+
+.logo{
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: #82bde0;
+  margin-bottom: 10%;
+}
+
+ion-input{
+  margin-bottom: 5%;
+  border-bottom: 1px solid white;
+}
+
+.login-form{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.login-button{
+  height: 80px;
+  width: 80px;
+  border-radius: 10%;
+  margin-top: 10%;
+  padding: 2%;
+  background-color: #29c67b;
+  color: #1C388C;
+  transform: rotate(45deg);
+}
+
+.login-button img{
+    transform: rotate(-45deg);
+}
+
+.login-error-message{
+  color: #BF8034;
+  font-size: 0.8rem;
+}
+
+.go-to-register{
+  height: 8%;
+  background-color: #29c67b;
+  text-align: center;
+  color: white;
+}
