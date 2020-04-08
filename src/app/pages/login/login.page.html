@@ -6,17 +6,17 @@
 
     <form class="login-form">
       <!-- user email -->
-      <p class="login-error-message">*El email introducido no es válido</p>
+      <p class="login-error-message">{{emailErrorMessage}}</p>
       <ion-label>Email</ion-label>
       <ion-input></ion-input>
 
       <!-- user password -->
-      <p class="login-error-message">*La contraseña no es válida</p>
-      <ion-label>Password</ion-label>
+      <p class="login-error-message">{{passwordErrorMessage}}</p>
+      <ion-label>Contraseña</ion-label>
       <ion-input></ion-input>
     </form>
 
-    <div class="login-button"><img src="../../../assets/img/loginArrow.png"></div>
+    <div (click)="login()" class="login-button"><img src="../../../assets/img/loginArrow.png"></div>
   </div>
-  <div class="go-to-register">REGISTRATE</div>
+  <div (click)="navigateToRegister()" class="go-to-register">REGISTRATE</div>
 </ion-content>
