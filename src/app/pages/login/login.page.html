@@ -4,19 +4,25 @@
     <div class="logo"></div>
 
 
-    <form class="login-form">
+    <form @slideTopForm class="login-form">
       <!-- user email -->
-      <p class="login-error-message">{{emailErrorMessage}}</p>
+      <p *ngIf="loginError"  class="login-error-message">{{emailErrorMessage}}</p>
       <ion-label>Email</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
 
       <!-- user password -->
-      <p class="login-error-message">{{passwordErrorMessage}}</p>
+      <p *ngIf="loginError" class="login-error-message">{{passwordErrorMessage}}</p>
       <ion-label>Contraseña</ion-label>
-      <ion-input></ion-input>
+      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
     </form>
 
-    <div (click)="login()" class="login-button"><img src="../../../assets/img/loginArrow.png"></div>
+    <button @slideTopButton (click)="login()" class="login-button">
+      <img *ngIf="!loading" src="../../../assets/img/loginArrow.png">
+      <ion-spinner *ngIf="loading" name="crescent" color="light"></ion-spinner>
+    </button>
+    <p (click)="navigateToRecoverPassword()">He olvidado la contraseña</p>
+    <p class="bottom-text">¿Aún no tienes cuenta?</p>
   </div>
+
   <div (click)="navigateToRegister()" class="go-to-register">REGISTRATE</div>
 </ion-content>

@@ -5,7 +5,7 @@ ion-navbar{
 ion-toolbar{
     --background: #024873;
     color: white;
-    padding: 10% 5%;
+    padding: 5% 5%;
     text-align: center;
 }
 
@@ -21,22 +21,28 @@ ion-content{
     border-radius: 100px 0px 0px 0px;
 }
 
-.options-grid{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    padding: 15% 5%;
-}
-
-.option{
+//loading screen
+.loading-data{
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #024873; 
-    border-radius: 20px;
+    height: 100%;
+    width: 100%;
 }
 
-.option-icon{
-    width: 40%;
+//empty view
+.empty-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.empty-view h2{
+    margin-top: 25%;
+    text-align: center;
+}
+
+.empty-view p{
+    padding: 0 5%;
 }

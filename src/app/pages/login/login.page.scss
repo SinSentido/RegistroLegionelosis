@@ -3,6 +3,10 @@ h1{
   text-align: center;
 }
 
+ion-content{
+  --background: #024873;
+}
+
 .content{
   height: 92%;
   display: flex;
@@ -10,12 +14,14 @@ h1{
   align-items: center;
   padding-top: 10%;
   background-color: #024873;
+  background-image: url("../../../assets/img/login-background.png");
+  background-size: cover;
   color: white;
 }
 
 .logo{
-  height: 100px;
-  width: 100px;
+  height: 85px;
+  width: 85px;
   border-radius: 50%;
   background-color: #82bde0;
   margin-bottom: 10%;
@@ -29,17 +35,22 @@ ion-input{
 .login-form{
   width: 80%;
   margin: 0 auto;
+  animation: slide-top-form 1.5s;
 }
 
 .login-button{
-  height: 80px;
-  width: 80px;
+  opacity: 0;
+  height: 65px;
+  width: 65px;
+  align-self: center;
   border-radius: 10%;
-  margin-top: 10%;
+  margin-top: 5%;
   padding: 2%;
   background-color: #29c67b;
-  color: #1C388C;
-  transform: rotate(45deg);
+  color: white;
+  animation: slide-top-button 1s 1s;
+  animation-fill-mode: forwards;
+  transform: translateY(300%);
 }
 
 .login-button img{
@@ -51,9 +62,56 @@ ion-input{
   font-size: 0.8rem;
 }
 
+.bottom-text{
+  margin-top: auto;
+}
+
 .go-to-register{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 8%;
   background-color: #29c67b;
   text-align: center;
   color: white;
+  animation: slide-in-register 1s;
+}
+
+ion-spinner{
+  width: 82% !important;
+  height: 82% !important;
+}
+
+
+//keyframes animations
+
+@keyframes slide-top-button{
+  from{
+    opacity: 0;
+    transform: translateY(400%) rotate(0deg);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0%) rotate(45deg);
+  }
+}
+
+@keyframes slide-top-form{
+  from{
+    opacity: 0;
+    transform: translateY(500%);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slide-in-register{
+  from{
+    transform: translateX(300%);
+  }
+  to{
+    transform: translateX(0%);
+  }
 }
