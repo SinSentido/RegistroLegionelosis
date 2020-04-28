@@ -14,6 +14,7 @@ export class DatabaseService {
   createCompanie(companie: Companie){
     this.fireDatabase.list("companies").push({
       userId: companie.userId,
+      name: companie.name,
       owner: companie.owner,
       representant: companie.representant,
       phone: companie.phone,
@@ -26,13 +27,9 @@ export class DatabaseService {
   }
 
   //get all the companies of a user specified by param
-  getUserCompanies(userId: string){
-    var companies: AngularFireList<Companie>;
-
-    companies = this.fireDatabase.list("companies", 
+  getUserCompanies(userId: string): AngularFireList<Companie>{
+    return this.fireDatabase.list("companies", 
       ref => ref.orderByChild('userId').equalTo(userId));
-
-    return companies;
   }
 
   updateCompanie(companieId: string){

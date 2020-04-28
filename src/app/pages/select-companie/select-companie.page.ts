@@ -32,7 +32,10 @@ export class SelectCompaniePage implements OnInit {
   loadCompanies(){
     this.localStorage.getUserId().then(userId => {
       this.databaseService.getUserCompanies(userId).valueChanges().subscribe(values => {
-        this.companies = values;
+        console.log(values);
+        values.forEach(value => {
+          this.companies.push(value);
+        })
         this.loadingData = false;
       });
     });

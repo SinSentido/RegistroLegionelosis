@@ -46,3 +46,21 @@ ion-content{
 .empty-view p{
     padding: 0 5%;
 }
+
+//list view
+
+.companies-container{
+    width: 100%;
+    height: 80%;
+    margin-top: 20%;
+}
+
+.card-header{
+    width: 100%;
+    height: 5px;
+    background-color: #0f2736;
+}
+
+.card-content{
+    padding: 2% 5% 5% 5%;
+}
