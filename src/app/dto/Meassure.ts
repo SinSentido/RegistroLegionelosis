@@ -1,5 +1,5 @@
 export class Meassure {
-    date: Date;
-    temperature: number = 0;
+    date: string = "";
+    temperature: string = "";
     description: string = "";
 }

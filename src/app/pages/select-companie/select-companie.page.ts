@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 
 //services
 import { AccountService } from '../../services/account/account.service';
 import { DatabaseService } from '../../services/database/database.service';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
+import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
 import { Companie } from '../../dto/Companie';
@@ -21,9 +24,11 @@ export class SelectCompaniePage implements OnInit {
 
   constructor(
     private router: Router,
+    private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private accountService: AccountService,
-    private localStorage: LocalStorageService) { }
+    private localStorage: LocalStorageService,
+    private dataServcie: DataServiceService) { }
 
   ngOnInit() {
     this.loadCompanies();
@@ -32,7 +37,6 @@ export class SelectCompaniePage implements OnInit {
   loadCompanies(){
     this.localStorage.getUserId().then(userId => {
       this.databaseService.getUserCompanies(userId).valueChanges().subscribe(values => {
-        console.log(values);
         values.forEach(value => {
           this.companies.push(value);
         })
@@ -42,7 +46,23 @@ export class SelectCompaniePage implements OnInit {
   }
 
   navigateToCreateCompanie(){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 400,
+    }
+
+    this.nativePageTransitions.slide(options);
     this.router.navigate(['/create-companie']);
   }
 
+  navigateToCreateMeassure(companie: Companie){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 400,
+    }
+
+    this.nativePageTransitions.slide(options);
+    this.dataServcie.setData(companie)
+    this.router.navigate(['/create-meassure']);
+  }
 }

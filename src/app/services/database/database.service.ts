@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 
 import { Companie } from './../../dto/Companie';
+import { Meassure } from './../../dto/Meassure';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,13 @@ export class DatabaseService {
 
   //adds a new companie to the database
   createCompanie(companie: Companie){
-    this.fireDatabase.list("companies").push({
-      userId: companie.userId,
-      name: companie.name,
-      owner: companie.owner,
-      representant: companie.representant,
-      phone: companie.phone,
-      fax: companie.fax,
-      email: companie.email,
-      regNumber: companie.regNumber,
-      nif: companie.nif,
-      meassures: companie.meassures
-    });
+    let key = this.fireDatabase.list("companies").push(companie).key;
+    companie.companieId = key;
+    this.updateCompanie(companie.companieId, companie);
+  }
+
+  createMeassure(companieId: string, meassure: Meassure){
+    this.fireDatabase.list("companies/" + companieId +"/meassures").push(meassure).key;
   }
 
   //get all the companies of a user specified by param
@@ -32,8 +28,12 @@ export class DatabaseService {
       ref => ref.orderByChild('userId').equalTo(userId));
   }
 
-  updateCompanie(companieId: string){
-
+  updateCompanie(companieId: string, companie: Companie){
+    this.fireDatabase.database.ref('companies/' + companieId).set(companie).then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   deleteCompanie(companieId: string){

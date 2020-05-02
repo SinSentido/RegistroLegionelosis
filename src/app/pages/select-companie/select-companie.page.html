@@ -18,17 +18,19 @@
     <div *ngIf="companies.length == 0 && !loadingData" class="empty-view">
       <h2>No hay empresas.</h2>
       <p>Para hacer un registro antes debes de crear una empresa.</p>
-      <ion-button (click)="navigateToCreateCompanie()" >Crear empresa</ion-button>
     </div>
 
     <!-- show data -->
     <div *ngIf="companies.length > 0" class="companies-container">
-      <ion-card *ngFor="let companie of companies">
+      <ion-card *ngFor="let companie of companies" (click)="navigateToCreateMeassure(companie)">
         <div class="card-header"></div>
         <div class="card-content">
-          <h2>{{companie.name}}</h2>
+          <h3>{{companie.name}}</h3>
         </div>
-      </ion-card> 
+      </ion-card>
     </div>
+  </div>
+  <div *ngIf="!loadingData" class="add-companie" (click)="navigateToCreateCompanie()">
+    <h3>Nueva empresa</h3>
   </div>
 </ion-content>

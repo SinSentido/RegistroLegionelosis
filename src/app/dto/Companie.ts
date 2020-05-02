@@ -1,6 +1,7 @@
 import { Meassure } from './Meassure';
 
 export class Companie {
+    companieId: string = "";
     userId: string = "";
     name: string = "";
     owner: string = "";
@@ -10,5 +11,5 @@ export class Companie {
     email: string = "";
     regNumber: string = "";
     nif: string = "";
-    meassures: Meassure[] = []
+    meassures: Meassure[] = [];
 }
