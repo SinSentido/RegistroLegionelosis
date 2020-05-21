@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'create-meassure',
     loadChildren: () => import('./pages/create-meassure/create-meassure.module').then( m => m.CreateMeassurePageModule)
   },
+  {
+    path: 'select-meassure-point',
+    loadChildren: () => import('./pages/select-meassure-point/select-meassure-point.module').then( m => m.SelectMeassurePointPageModule)
+  }
 ];
 
 @NgModule({

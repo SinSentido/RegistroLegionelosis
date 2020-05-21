@@ -16,7 +16,7 @@
     <!-- if data is empty -->
     <div *ngIf="companie == null && !loadingData" class="empty-view">
       <h2>No hay ninguna empresa seleccionada.</h2>
-      <ion-button (click)="navigateToSelectCompanie()">Seleccionar empresa</ion-button>
+      <ion-button (click)="navigateToSelectCompanies()">Seleccionar empresa</ion-button>
     </div>
 
     <div class="content" *ngIf="companie != null" >

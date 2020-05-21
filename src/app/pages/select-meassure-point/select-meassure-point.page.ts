@@ -10,20 +10,22 @@ import { LocalStorageService } from '../../services/local-storage/local-storage.
 import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
+import { MeassurePoint } from './../../dto/MeassurePoint';
 import { Companie } from '../../dto/Companie';
 
 @Component({
-  selector: 'app-select-companie',
-  templateUrl: './select-companie.page.html',
-  styleUrls: ['./select-companie.page.scss'],
+  selector: 'app-select-meassure-point',
+  templateUrl: './select-meassure-point.page.html',
+  styleUrls: ['./select-meassure-point.page.scss'],
 })
-export class SelectCompaniePage implements OnInit {
+export class SelectMeassurePointPage implements OnInit {
+
+  companie: Companie = new Companie();
 
   loadingData: boolean = true;
-  companies: Companie[] = [];
+  meassurePoints: MeassurePoint[] = [];
 
-  constructor(
-    private router: Router,
+  constructor(private router: Router,
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private accountService: AccountService,
@@ -31,45 +33,23 @@ export class SelectCompaniePage implements OnInit {
     private dataService: DataServiceService) { }
 
   ngOnInit() {
- 
+    this.loadData();
   }
 
-  ionViewWillEnter(){
-    this.loadCompanies();
-  }
-
-  loadCompanies(){
-    this.companies = [];
-    
-    this.localStorage.getUserId().then(userId => {
-      this.databaseService.getUserCompanies(userId).valueChanges().subscribe(values => {
-        values.forEach(value => {
-          this.companies.push(value);
-        })
-        this.loadingData = false;
-        console.log(this.companies);
-      });
-    });
-  }
-
-  navigateToCreateCompanie(){
+  navigateToCreateMeassure(meassurePoint: MeassurePoint){
     let options: NativeTransitionOptions = {
       direction: 'up',
       duration: 400,
     }
 
     this.nativePageTransitions.slide(options);
-    this.router.navigate(['/create-companie']);
+    //this.dataServcie.setData(companie)
+    this.router.navigate(['/create-meassure']);
   }
 
-  navigateToSelectMeassurePoint(companie: Companie){
-    let options: NativeTransitionOptions = {
-      direction: 'left',
-      duration: 400,
-    }
-
-    this.nativePageTransitions.slide(options);
-    this.dataService.setCompanie(companie)
-    this.router.navigate(['/select-meassure-point']);
+  private loadData(){
+    this.companie = this.dataService.getCompanie();
+    this.loadingData = false;
   }
+
 }

@@ -1,5 +1,8 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { AlertController } from '@ionic/angular';
 
 import { Companie } from './../../dto/Companie';
 
@@ -35,8 +38,10 @@ export class CreateCompaniePage implements OnInit {
 
   constructor(
     private router: Router,
+    private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
-    private localStorage: LocalStorageService
+    private localStorage: LocalStorageService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -57,6 +62,8 @@ export class CreateCompaniePage implements OnInit {
 
         this.databaseService.createCompanie(this.companie);
         this.loading = false;
+
+        this.alertCreateMeassurePoint();
       });
 
     }
@@ -96,6 +103,12 @@ export class CreateCompaniePage implements OnInit {
   }
 
   navigateToSelectCompanies(){
+    let options: NativeTransitionOptions = {
+      direction: 'down',
+      duration: 400,
+    }
+
+    this.nativePageTransitions.slide(options);
     this.router.navigate(['/select-companie']);
   }
 
@@ -107,5 +120,30 @@ export class CreateCompaniePage implements OnInit {
     this.emailErrorMessage = "";
     this.nifErrorMessage = "";
   }
+
+    //alert
+    async alertCreateMeassurePoint() {
+      const alert = await this.alertController.create({
+        header: 'Empresa creada!',
+        message: 'La empresa se ha creado correctamente pero no tiene ningún punto de medida.\n¿Quieres crear un punto de medida ahora?',
+        buttons: [
+          {
+            text: 'Crear ahora',
+            role: 'cancel',
+            cssClass: 'secondary',
+            handler: (blah) => {
+              console.log('Confirm Cancel: blah');
+            }
+          }, {
+            text: 'Crear luego',
+            handler: () => {
+              this.navigateToSelectCompanies();
+            }
+          }
+        ]
+      });
+  
+      await alert.present();
+    }
 
 }

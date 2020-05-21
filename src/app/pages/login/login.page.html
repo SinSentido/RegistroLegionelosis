@@ -1,7 +1,10 @@
 <ion-content>
   <div class="content">
     <!-- logo -->
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="../../../assets/img/logo.png">
+      <h3>Login</h3>
+    </div>
 
 
     <form @slideTopForm class="login-form">
@@ -14,12 +17,12 @@
       <p *ngIf="loginError" class="login-error-message">{{passwordErrorMessage}}</p>
       <ion-label>Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
-    </form>
 
-    <button @slideTopButton (click)="login()" class="login-button">
-      <img *ngIf="!loading" src="../../../assets/img/loginArrow.png">
-      <ion-spinner *ngIf="loading" name="crescent" color="light"></ion-spinner>
-    </button>
+      <button type="submit" @slideTopButton (click)="login()" class="login-button">
+        <img *ngIf="!loading" src="../../../assets/img/loginArrow.png">
+        <ion-spinner *ngIf="loading" name="crescent" color="light"></ion-spinner>
+      </button>
+    </form>
     <p (click)="navigateToRecoverPassword()">He olvidado la contraseña</p>
     <p class="bottom-text">¿Aún no tienes cuenta?</p>
   </div>

@@ -1,7 +1,10 @@
 <ion-content class="main-container">
   <div class="content">
 
-    <div class="logo"></div>
+    <div class="logo">
+      <img src="../../../assets/img/logo.png">
+      <h3>Registro</h3>
+    </div>
 
     <form class="register-form">
       <!-- user email -->
@@ -17,15 +20,14 @@
       <p *ngIf="registerError" class="register-error-message">{{confirmPasswordErrorMessage}}</p>
       <ion-label>Confirmar contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
-    </form>
 
-    <!-- submit button -->
-    <button (click)="register()" class="register-button">
-      <img *ngIf="!loading" src="../../../assets/img/loginArrow.png">
-      <ion-spinner *ngIf="loading" name="crescent" color="light"></ion-spinner>
-    </button>
+      <button type="submit" (click)="register()" class="register-button">
+        <img *ngIf="!loading" src="../../../assets/img/loginArrow.png"> 
+        <ion-spinner *ngIf="loading" name="crescent" color="light"></ion-spinner>
+      </button>
+    </form>
   </div>
 
-  <div (click)="navigateToLogin()" class="go-to-login">INICIAR SESIÓN</div>
+  <div (click)="navigateToLogin()" class="go-to-login">INICIAR SESIÓN</div>  
 </ion-content>
  

@@ -1,32 +1,65 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
-    <br>
-    <h2>Bienvenido</h2>
+    <ion-title>Dashboard</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="header">
+    <div class="logo">
+      <img src="../../../assets/img/logo.png">
+    </div>
+    <h4>Registro de control de legionella</h4>
+  </div>
   <div class="content">
     <div class="options-grid">
       
+      <!-- first line -->
       <div (click)="navigateToSelectCompanie()"  class="option">
-          <img class="option-icon" src="../../../assets/img/mas.png">
-          <h4>Nuevo registro</h4>
+        <ion-icon name="add-outline"></ion-icon>
+          <p>Nueva medida</p>
       </div>
 
       <div class="option">
-        <img class="option-icon" src="../../../assets/img/trabajo.png">
-        <h4>Mi información</h4>
+        <ion-icon name="business-outline"></ion-icon>
+        <p>Empresas</p>
       </div>
 
       <div class="option">
-        <img class="option-icon" src="../../../assets/img/graficos.png">
-        <h4>Estadísticas</h4>
+        <ion-icon name="person-outline"></ion-icon>
+        <p>Perfil</p>
+      </div>
+
+      <!-- second line -->
+      <div class="option">
+        <ion-icon name="today-outline"></ion-icon>
+        <p>Calendario</p>
       </div>
 
       <div class="option">
-        <img class="option-icon" src="../../../assets/img/pregunta.png">
-        <h4>Ayuda</h4>
+        <ion-icon name="bar-chart-outline"></ion-icon>
+        <p>Estadísticas</p>
+      </div>
+
+      <div class="option">
+        <ion-icon name="send-outline"></ion-icon>
+        <p>Enviar datos</p>
+      </div>
+
+      <!-- third line -->
+      <div class="option">
+        <ion-icon name="build-outline"></ion-icon>
+        <p>Ajustes</p>
+      </div>
+
+      <div class="option">
+        <ion-icon name="information-outline"></ion-icon>
+        <p>Información</p>
+      </div>
+
+      <div class="option">
+        <ion-icon name="help-outline"></ion-icon>
+        <p>Ayuda</p>
       </div>
 
     </div>

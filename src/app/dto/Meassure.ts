@@ -1,5 +1,8 @@
 export class Meassure {
+    meassureId: string = "";
+    meassurePointId: string = "";
     date: string = "";
     temperature: string = "";
-    description: string = "";
+    chlorine: string = "";
+    comment: string = "";
 }

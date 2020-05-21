@@ -3,7 +3,6 @@ ion-toolbar{
     color: white;
 }
 
-
 .header{
     display: flex;
     flex-direction: column;
@@ -11,17 +10,22 @@ ion-toolbar{
     align-items: center;
     background-color: #093652;
     color: white;
-    height: 22%;
+    height: 25%;
     padding: 5%;
 }
 
 ion-icon{
     font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+h4, h5{
+    margin: 0;
 }
 
 .content{
     display: flex;
-    height: 68%;
+    height: 65%;
     width: 100%;
     background-color: white;
 }
@@ -69,7 +73,7 @@ ion-icon{
     padding: 2% 5% 5% 5%;
 }
 
-.add-companie{
+.add-meassure-point{
     background-color: #29c67b;
     display: flex;
     justify-content: center;

@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
 
 import { Companie } from '../../dto/Companie';
+import { MeassurePoint } from '../../dto/MeassurePoint';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
 
-  data: Companie;
+  companie: Companie;
+  meassurePoint: MeassurePoint;
 
   constructor() { }
 
-  setData(companie: Companie){
-    this.data = companie;
+  setCompanie(companie: Companie){
+    this.companie = companie;
   }
 
-  getData(): Companie{
-    return this.data;
+  setMeassurePoint(meassurePoint: MeassurePoint){
+    this.meassurePoint = meassurePoint;
+  }
+
+  getCompanie(): Companie{
+    return this.companie;
+  }
+
+  getMeassurePoint(){
+    return this.meassurePoint;
   }
 }

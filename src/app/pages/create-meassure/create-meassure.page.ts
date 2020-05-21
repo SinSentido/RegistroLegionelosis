@@ -1,6 +1,10 @@
+import { MeassurePoint } from './../../dto/MeassurePoint';
 import { Meassure } from './../../dto/Meassure';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { AlertController } from '@ionic/angular';
 
 import { Companie } from '../../dto/Companie';
 
@@ -16,6 +20,7 @@ import { DataServiceService } from '../../services/data-service/data-service.ser
 export class CreateMeassurePage implements OnInit {
 
   companie: Companie = new Companie();
+  meassurePoint: MeassurePoint = new MeassurePoint();
   meassure: Meassure = new Meassure();
   loadingData: boolean = true;
 
@@ -29,27 +34,42 @@ export class CreateMeassurePage implements OnInit {
 
   constructor(
     private router: Router,
+    private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
-    private dataService: DataServiceService
+    private dataService: DataServiceService,
+    private alertController: AlertController
   ) { }
 
   ngOnInit() {
     this.loadData();
   }
 
+  ionViewWillEnter(){
+   
+  }
+
   createMeassure(){
     if(this.validateForm()){
       this.meassure.date = this.date;
       this.meassure.temperature = this.temperature;
-      this.meassure.description = this.description;
+      this.meassure.comment = this.description;
       this.databaseService.createMeassure(this.companie.companieId, this.meassure);
+      
+
+      this.navigateToSelectCompanies();
     }
     else{
       this.creationError = true;
     }
   }
 
-  navigateToSelectCompanie(){
+  navigateToSelectCompanies(){
+    let options: NativeTransitionOptions = {
+      direction: 'down',
+      duration: 400,
+    }
+
+    this.nativePageTransitions.slide(options);
     this.router.navigate(['/select-companie']);
   }
 
@@ -76,8 +96,11 @@ export class CreateMeassurePage implements OnInit {
   }
 
   private loadData(){
-    this.companie = this.dataService.getData();
+    this.companie = this.dataService.getCompanie();
+    this.meassurePoint = this.dataService.getMeassurePoint();
     this.loadingData = false;
   }
+
+
 
 }
