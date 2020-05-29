@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'edit-companie',
     loadChildren: () => import('./pages/edit-companie/edit-companie.module').then( m => m.EditCompaniePageModule)
+  },
+  {
+    path: 'reports',
+    loadChildren: () => import('./pages/reports/reports.module').then( m => m.ReportsPageModule)
   }
 ];
 

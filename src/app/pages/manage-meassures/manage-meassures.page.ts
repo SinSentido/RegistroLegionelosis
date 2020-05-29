@@ -63,8 +63,17 @@ export class ManageMeassuresPage implements OnInit {
     });
 
     setTimeout(() => {
-      this.loadingData = false;
-    }, 500);
-  }
+      this.meassures = this.meassures.sort(function (a, b) {
+        var dateA = new Date(a.date), dateB = new Date(b.date);
+        if(dateA > dateB){
+          return -1;
+        }
+        else{
+          return 1
+        }
+      });
 
+      this.loadingData = false;
+    }, 1500);
+  }
 }

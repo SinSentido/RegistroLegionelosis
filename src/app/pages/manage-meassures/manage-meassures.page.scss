@@ -36,7 +36,7 @@ form{
 
 .content{
     display: flex;
-    height: 65%;
+    height: 75%;
     width: 100%;
     background-color: white;
 }
@@ -66,10 +66,7 @@ form{
     overflow: scroll;
 }
 
-.meassure{
-    border-bottom: 1px solid #024873;
-}
-
 .card-content{
     padding: 2% 5% 5% 5%;
+    border-bottom: 1px solid #024873;
 }

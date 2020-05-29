@@ -38,7 +38,7 @@
     </div>
 
     <!-- show data -->
-    <div *ngIf="meassures.length > 0" class="meassures-container">
+    <div *ngIf="meassures.length > 0 && !loadingData" class="meassures-container">
       <div class="meassure" *ngFor="let meassure of meassures">
         <div *ngFor="let meassurePoint of meassurePoints">
           <div class="card-content" *ngIf="meassurePoint.meassurePointId == meassure.meassurePointId && 
