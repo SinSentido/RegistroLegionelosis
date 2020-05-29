@@ -21,6 +21,7 @@ export class ManageCompaniesPage implements OnInit {
 
   loadingData: boolean = true;
   companies: Companie[] = [];
+  searchCompanie: string = "";
 
   constructor(
     private router: Router,
@@ -30,9 +31,7 @@ export class ManageCompaniesPage implements OnInit {
     private localStorage: LocalStorageService,
     private dataService: DataServiceService) { }
 
-  ngOnInit() {
- 
-  }
+  ngOnInit() {}
 
   ionViewWillEnter(){
     this.loadCompanies();

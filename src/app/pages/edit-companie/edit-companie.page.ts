@@ -96,7 +96,6 @@ export class EditCompaniePage implements OnInit {
   }
 
   private restoreData(){
-    this.databaseService.deleteCompanie(this.companie.companieId);
     this.name = this.companie.name;
     this.owner = this.companie.owner;
     this.representant = this.companie.representant;

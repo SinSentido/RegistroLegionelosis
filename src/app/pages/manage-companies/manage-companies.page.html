@@ -14,7 +14,7 @@
   <div class="header">
     <ion-icon class="page-logo" name="business-outline"></ion-icon>
     <h4>Tus empresas</h4>
-    <ion-searchbar color="light" placeholder="Nombre de la empresa"></ion-searchbar>
+    <ion-searchbar color="light" name="searchCompanie" [(ngModel)]="searchCompanie" placeholder="Nombre de la empresa"></ion-searchbar>
   </div> 
 
   <div class="content">
@@ -32,7 +32,7 @@
     <!-- show data -->
     <div *ngIf="companies.length > 0" class="companies-container">
       <div class="companie" *ngFor="let companie of companies" (click)="navigateToCompanieInfo(companie)">
-        <div class="card-content">
+        <div class="card-content" *ngIf="companie.name.toLocaleLowerCase().match(searchCompanie.toLocaleLowerCase())" >
           <h4><ion-icon name="business-outline"></ion-icon> {{companie.name}}</h4>
           <p *ngIf="companie.representant == ''"><ion-icon name="person-outline"></ion-icon> {{companie.owner}}</p>
           <p *ngIf="companie.representant != ''"><ion-icon name="person-outline"></ion-icon> {{companie.representant}}</p>

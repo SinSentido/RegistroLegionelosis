@@ -35,7 +35,9 @@ export class CompanieInfoPage implements OnInit {
     private dataService: DataServiceService,
     private navCtrl: NavController) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ionViewWillEnter(){
     this.loadData();
   }
 
