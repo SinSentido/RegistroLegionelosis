@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Empresas</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="business-outline"></ion-icon>
+    <h2>{{companie.name}}</h2>
+    <p (click)="navigateToEditCompanie()"  class="edit-companie"><ion-icon name="create-outline"></ion-icon> Editar empresa</p>
+  </div>
+
+  <div class="content">
+    <p><strong><ion-icon name="business-outline"></ion-icon> Nombre:</strong> {{companie.name}}</p>
+    <p><strong><ion-icon name="person-outline"></ion-icon> Propietario:</strong> {{companie.owner}}</p>
+    <p><strong><ion-icon name="people-outline"></ion-icon> Representante:</strong> {{companie.representant}}</p>
+    <p><strong><ion-icon name="call-outline"></ion-icon> Teléfono:</strong> {{companie.phone}}</p>
+    <p><strong><ion-icon name="file-tray-full-outline"></ion-icon> Fax:</strong> {{companie.fax}}</p>
+    <p><strong><ion-icon name="mail-outline"></ion-icon> Email:</strong> {{companie.email}}</p>
+    <p><strong><ion-icon name="document-attach-outline"></ion-icon> Nº Registro:</strong> {{companie.regNumber}}</p>
+    <p><strong><ion-icon name="finger-print-outline"></ion-icon> NIF:</strong> {{companie.nif}}</p>
+
+    <button (click)="navigateToManageMeassurePoints()"><p>Ver puntos de medida</p></button>
+    <button (click)="navigateToManageMeassures()" ><p>Ver medidas</p></button>
+
+    <hr>
+
+    <p (click)="alertConfirmDelete()" class="delete-companie"><ion-icon name="trash-outline"></ion-icon> Eliminar empresa</p>
+  </div>
+
+</ion-content>

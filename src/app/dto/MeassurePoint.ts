@@ -3,4 +3,5 @@ export class MeassurePoint {
     companieId: string = "";
     name: string = "";
     description: string = "";
+    lastMeassure: string = "";
 }

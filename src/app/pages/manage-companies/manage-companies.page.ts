@@ -10,23 +10,20 @@ import { LocalStorageService } from '../../services/local-storage/local-storage.
 import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
-import { MeassurePoint } from './../../dto/MeassurePoint';
 import { Companie } from '../../dto/Companie';
 
 @Component({
-  selector: 'app-select-meassure-point',
-  templateUrl: './select-meassure-point.page.html',
-  styleUrls: ['./select-meassure-point.page.scss'],
+  selector: 'app-manage-companies',
+  templateUrl: './manage-companies.page.html',
+  styleUrls: ['./manage-companies.page.scss'],
 })
-export class SelectMeassurePointPage implements OnInit {
+export class ManageCompaniesPage implements OnInit {
 
-  companie: Companie = new Companie();
-
-  today: string = new Date().toISOString().substring(0,10);
   loadingData: boolean = true;
-  meassurePoints: MeassurePoint[] = [];
+  companies: Companie[] = [];
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private accountService: AccountService,
@@ -34,44 +31,44 @@ export class SelectMeassurePointPage implements OnInit {
     private dataService: DataServiceService) { }
 
   ngOnInit() {
+ 
   }
 
   ionViewWillEnter(){
-    this.loadData();
+    this.loadCompanies();
   }
 
-  navigateToCreateMeassurePoint(){
+  loadCompanies(){
+    this.companies = [];
+    
+    this.localStorage.getUserId().then(userId => {
+      this.databaseService.getUserCompanies(userId).valueChanges().subscribe(values => {
+        values.forEach(value => {
+          this.companies.push(value);
+        })
+        this.loadingData = false;
+      });
+    });
+  }
+
+  navigateToCreateCompanie(){
     let options: NativeTransitionOptions = {
       direction: 'up',
       duration: 400,
     }
 
     this.nativePageTransitions.slide(options);
-    this.router.navigate(['/create-meassure-point']);
+    this.router.navigate(['/create-companie']);
   }
 
-  navigateToCreateMeassure(meassurePoint: MeassurePoint){
+  navigateToCompanieInfo(companie: Companie){
     let options: NativeTransitionOptions = {
-      direction: 'up',
+      direction: 'left',
       duration: 400,
     }
 
-    this.dataService.setMeassurePoint(meassurePoint);
     this.nativePageTransitions.slide(options);
-    //this.dataServcie.setData(companie)
-    this.router.navigate(['/create-meassure']);
+    this.dataService.setCompanie(companie)
+    this.router.navigate(['/companie-info']);
   }
-
-  private loadData(){
-    this.meassurePoints = [];
-    this.companie = this.dataService.getCompanie();
-
-    this.databaseService.getCompanieMeassurePoints(this.companie.companieId).valueChanges().subscribe(values => {
-      values.forEach(value => {
-        this.meassurePoints.push(value);
-      })
-    })
-    this.loadingData = false;
-  }
-
 }

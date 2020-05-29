@@ -19,4 +19,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/select-companie']);
   }
 
+  navigateToManageCompanies(){
+    this.router.navigate(['/manage-companies']);
+  }
+
 }

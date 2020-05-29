@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { AlertController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 
 import { Companie } from './../../dto/Companie';
 
@@ -32,7 +33,6 @@ export class CreateCompaniePage implements OnInit {
   ownerErrorMessage: string = "";
   phoneErrorMessage: string = "";
   emailErrorMessage: string = "";
-  nifErrorMessage: string = "";
 
   loading: boolean = false;
 
@@ -41,8 +41,8 @@ export class CreateCompaniePage implements OnInit {
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private localStorage: LocalStorageService,
-    private alertController: AlertController
-  ) { }
+    private alertController: AlertController,
+    private navCtrl: NavController) { }
 
   ngOnInit() {
   }
@@ -90,13 +90,9 @@ export class CreateCompaniePage implements OnInit {
       this.phoneErrorMessage = "*El teléfono no tiene un formato válido."
       isValid = false;
     }
-    if(!this.email.match(new RegExp("[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+")) && this.email != ""){
+    if(!this.email.match(new RegExp("[a-zA-Z0-9_\\.\\+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-\\.]+")) && this.email == ""){
       this.emailErrorMessage = "*El email introducido no tiene un formato válido."
       isValid = false;
-    }
-    if(!this.nif.match(new RegExp("[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKE]"))){
-      this.nifErrorMessage = "*El NIF o NIE introducido no tiene un formato válido";
-      isValid = false
     }
 
     return isValid;
@@ -109,7 +105,7 @@ export class CreateCompaniePage implements OnInit {
     }
 
     this.nativePageTransitions.slide(options);
-    this.router.navigate(['/select-companie']);
+    this.navCtrl.back();
   }
 
   private resetErrorMessages(){
@@ -118,7 +114,6 @@ export class CreateCompaniePage implements OnInit {
     this.ownerErrorMessage = "";
     this.phoneErrorMessage = "";
     this.emailErrorMessage = "";
-    this.nifErrorMessage = "";
   }
 
     //alert
@@ -129,9 +124,7 @@ export class CreateCompaniePage implements OnInit {
         buttons: [
           {
             text: 'Crear ahora',
-            role: 'cancel',
-            cssClass: 'secondary',
-            handler: (blah) => {
+            handler: () => {
               console.log('Confirm Cancel: blah');
             }
           }, {

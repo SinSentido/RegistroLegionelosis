@@ -27,9 +27,11 @@ export class CreateMeassurePage implements OnInit {
   creationError: boolean = false;
   dateErrorMessage: string = "";
   temperatureErrorMessage: string = "";
+  chlorineErrorMessage: string = "";
 
   date: string = new Date().toISOString();
   temperature: string = "";
+  chlorine: string = "";
   description: string = "";
 
   constructor(
@@ -50,11 +52,14 @@ export class CreateMeassurePage implements OnInit {
 
   createMeassure(){
     if(this.validateForm()){
-      this.meassure.date = this.date;
+      this.meassure.meassurePointId = this.meassurePoint.meassurePointId;
+      this.meassure.date = this.date.substring(0, 10);
       this.meassure.temperature = this.temperature;
+      this.meassure.chlorine = this.chlorine;
       this.meassure.comment = this.description;
-      this.databaseService.createMeassure(this.companie.companieId, this.meassure);
-      
+      this.meassurePoint.lastMeassure = this.date.substring(0, 10);
+      this.databaseService.createMeassure(this.meassure);
+      this.databaseService.updateMeassurePoint(this.meassurePoint.meassurePointId, this.meassurePoint);
 
       this.navigateToSelectCompanies();
     }
@@ -89,8 +94,9 @@ export class CreateMeassurePage implements OnInit {
       this.temperatureErrorMessage = "*La temperatura no tiene un formato válido";
       isValid = false;
     }
-    if(this.description == ""){
-      
+    else if(!this.chlorine.match(new RegExp("[0-9]*"))){
+      this.chlorineErrorMessage = "*El nivel de cloro no tiene un formato válido";
+      isValid = false;
     }
     return isValid;
   }

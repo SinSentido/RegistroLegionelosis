@@ -3,6 +3,7 @@ ion-toolbar{
     color: white;
 }
 
+
 .header{
     display: flex;
     flex-direction: column;
@@ -10,22 +11,27 @@ ion-toolbar{
     align-items: center;
     background-color: #093652;
     color: white;
-    height: 25%;
+    height: 28%;
     padding: 5%;
 }
 
-.header .page-logo{
-    font-size: 2.5rem;
-    margin-bottom: 2%;
+.header h4{
+    margin-bottom: 0;
 }
 
-h4, h5{
+ion-searchbar{
+    color: white;
     margin: 0;
+}
+
+.page-logo{
+    font-size: 3rem;
 }
 
 .content{
     display: flex;
-    height: 65%;
+    min-height: 62%;
+    max-height: 62%;
     width: 100%;
     background-color: white;
 }
@@ -59,13 +65,13 @@ h4, h5{
 
 //list view
 
-.meassure-points-container{
+.companies-container{
     width: 100%;
     max-height: 100%;
     overflow: scroll;
 }
 
-.meassure-point{
+.companie{
     border-bottom: 1px solid #024873;
 }
 
@@ -73,19 +79,11 @@ h4, h5{
     padding: 2% 5% 5% 5%;
 }
 
-.pending{
-    color: red;
-}
-
-.done{
-    color: #29c67b;
-}
-
-.add-meassure-point{
+.add-companie{
     background-color: #29c67b;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    height: 10%;
+    min-height: 10%;
 }

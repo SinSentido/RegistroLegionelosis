@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
+import { AlertController } from '@ionic/angular';
 
 //services
 import { AccountService } from '../../services/account/account.service';
@@ -12,26 +13,30 @@ import { DataServiceService } from '../../services/data-service/data-service.ser
 //classes
 import { MeassurePoint } from './../../dto/MeassurePoint';
 import { Companie } from '../../dto/Companie';
+import { Meassure } from '../../dto/Meassure';
 
 @Component({
-  selector: 'app-select-meassure-point',
-  templateUrl: './select-meassure-point.page.html',
-  styleUrls: ['./select-meassure-point.page.scss'],
+  selector: 'app-manage-meassures',
+  templateUrl: './manage-meassures.page.html',
+  styleUrls: ['./manage-meassures.page.scss'],
 })
-export class SelectMeassurePointPage implements OnInit {
+export class ManageMeassuresPage implements OnInit {
 
   companie: Companie = new Companie();
-
-  today: string = new Date().toISOString().substring(0,10);
-  loadingData: boolean = true;
   meassurePoints: MeassurePoint[] = [];
+  meassures: Meassure[] = [];
+
+  meassurePointSelected: string = "all";
+
+  loadingData: boolean = true;
 
   constructor(private router: Router,
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private accountService: AccountService,
     private localStorage: LocalStorageService,
-    private dataService: DataServiceService) { }
+    private dataService: DataServiceService,
+    private alertController: AlertController) { }
 
   ngOnInit() {
   }
@@ -40,38 +45,26 @@ export class SelectMeassurePointPage implements OnInit {
     this.loadData();
   }
 
-  navigateToCreateMeassurePoint(){
-    let options: NativeTransitionOptions = {
-      direction: 'up',
-      duration: 400,
-    }
-
-    this.nativePageTransitions.slide(options);
-    this.router.navigate(['/create-meassure-point']);
-  }
-
-  navigateToCreateMeassure(meassurePoint: MeassurePoint){
-    let options: NativeTransitionOptions = {
-      direction: 'up',
-      duration: 400,
-    }
-
-    this.dataService.setMeassurePoint(meassurePoint);
-    this.nativePageTransitions.slide(options);
-    //this.dataServcie.setData(companie)
-    this.router.navigate(['/create-meassure']);
-  }
-
   private loadData(){
     this.meassurePoints = [];
+    //get companie
     this.companie = this.dataService.getCompanie();
 
+    //get meassure points and meassures of the companie
     this.databaseService.getCompanieMeassurePoints(this.companie.companieId).valueChanges().subscribe(values => {
       values.forEach(value => {
         this.meassurePoints.push(value);
-      })
-    })
-    this.loadingData = false;
+        this.databaseService.getMeassuresOfMeassurePoint(value.meassurePointId).valueChanges().subscribe(meassures => {
+          meassures.forEach(meassure => {
+            this.meassures.push(meassure);
+          });
+        });
+      });
+    });
+
+    setTimeout(() => {
+      this.loadingData = false;
+    }, 500);
   }
 
 }

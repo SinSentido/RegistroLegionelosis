@@ -47,7 +47,6 @@ export class SelectCompaniePage implements OnInit {
           this.companies.push(value);
         })
         this.loadingData = false;
-        console.log(this.companies);
       });
     });
   }

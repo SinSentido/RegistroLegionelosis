@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Medidas</ion-title> 
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <h4><ion-icon name="business-outline"></ion-icon> {{companie.name}}</h4>
+
+    <div class="select-meassure-point">
+      <ion-icon name="water-outline"></ion-icon>
+      <form action="">
+        <ion-select value={{meassurePointSelected}} name="meassurePointSelected" [(ngModel)]="meassurePointSelected">
+          <ion-select-option value="all">Todos los puntos de medida</ion-select-option>
+          <ion-select-option *ngFor="let meassurePoint of meassurePoints"  value="{{meassurePoint.name}}">{{meassurePoint.name}}</ion-select-option>
+        </ion-select>
+      </form>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- while loading -->
+    <div *ngIf="loadingData" class="loading-data">
+      <p>Cargando</p>
+      <ion-spinner name="dots" color="success"></ion-spinner>
+    </div>
+
+    <!-- if data is empty -->
+    <div *ngIf="meassures.length == 0 && !loadingData" class="empty-view">
+      <h2>No hay medidas</h2>
+    </div>
+
+    <!-- show data -->
+    <div *ngIf="meassures.length > 0" class="meassures-container">
+      <div class="meassure" *ngFor="let meassure of meassures">
+        <div *ngFor="let meassurePoint of meassurePoints">
+          <div class="card-content" *ngIf="meassurePoint.meassurePointId == meassure.meassurePointId && 
+          (meassurePoint.name == meassurePointSelected || meassurePointSelected == 'all')">
+            <p>Punto de medida: {{meassurePoint.name}}</p>
+            <p><strong><ion-icon name="water-outline"></ion-icon> Fecha:</strong> {{meassure.date}}</p>
+            <p><strong><ion-icon name="chatbubbles-outline"></ion-icon> Temperatura:</strong> {{meassure.temperature}}</p>
+            <p><strong><ion-icon name="today-outline"></ion-icon> Nivel de cloro:</strong> {{meassure.chlorine}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

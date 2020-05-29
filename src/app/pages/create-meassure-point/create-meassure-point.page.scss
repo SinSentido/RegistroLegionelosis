@@ -1,11 +1,6 @@
-
 ion-toolbar{
     --background: #29c67b;
     color: white;
-}
-
-ion-content{
-    --background: #29c67b;
 }
 
 .header{
@@ -45,13 +40,19 @@ ion-content{
 
 form{
     width: 100%;
-    padding: 2% 10%;
+    margin-top: 5%;
+    padding: 5%;
 }
 
 ion-input{
     border-bottom: 1px solid black;
     width: 100%;
-    margin-bottom: 10%;
+    margin-bottom: 15%;
+}
+
+.error-message{
+    font-size: 0.8rem;
+    color: red;
 }
 
 .create-button{
@@ -61,12 +62,7 @@ ion-input{
     align-items: center;
     width: 100%;
     min-height: 10%;
-    background-color: #29c67b;
-}
-
-.error-message{
-    font-size: 0.8rem;
-    color: red;
+    background-color: #093652;
 }
 
 //keyframes

@@ -1,36 +1,45 @@
-ion-navbar{
-    height: 50%;
-}
-
 ion-toolbar{
     --background: #29c67b;
     color: white;
-    padding: 5% 5%;
-    text-align: center;
 }
 
-ion-content{
-    --background: #29c67b;
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #29c67b;
+    color: white;
+    min-height: 22%;
+    padding: 5%;
+}
+
+.header .page-logo{
+    font-size: 2.5rem;
+    margin-bottom: 2%;
+}
+
+.header h4{
+    margin: 0;
 }
 
 .content{
     display: flex;
     flex-direction: column;
     width: 100%;
-    min-height: 85%;
+    min-height: 68%;
+    max-height: 68%;
     background-color: white;
-    border-radius: 100px 0px 100px 0px;
     animation: slide-in-formulary 1s;
+    overflow: scroll;
 }
 
-.empty-view{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 80%;
-    background-color: white;
-    border-radius: 100px 0px 100px 0px;
+.content h5{
+    display: inline-block;
+    width: 100%;
+    padding: 5%;
+    text-align: justify;
+    border-bottom: 1px solid #29c67b;
 }
 
 h3{
@@ -41,7 +50,13 @@ h3{
 
 form{
     width: 100%;
-    padding: 2% 10%;
+    padding: 5% 10%;
+}
+
+ion-datetime{
+    border-bottom: 1px solid black;
+    width: 100%;
+    margin-bottom: 10%;
 }
 
 ion-input{
@@ -56,8 +71,8 @@ ion-input{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 15%;
-    background-color: #29c67b;
+    min-height: 10%;
+    background-color: #093652;
 }
 
 .error-message{

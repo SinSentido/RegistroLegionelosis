@@ -1,16 +1,25 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
-    <br>
-    <h2>Nueva empresa</h2>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear empresa</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="business-outline"></ion-icon>
+    <h4>Nueva empresa</h4>
+  </div>
+
   <div class="content">
+    <h5>Rellena los datos de la empresa.</h5>
 
-    <h3>Introduce los datos de la empresa</h3>
-
-    <form action="">
+    <form>
       <p *ngIf="creationError" class="error-message">{{nameErrorMessage}}</p>
       <ion-label>*Nombre de la empresa:</ion-label>
       <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
@@ -23,7 +32,7 @@
       <ion-input type="text" name="representant" [(ngModel)]="representant"></ion-input>
 
       <p *ngIf="creationError" class="error-message">{{emailErrorMessage}}</p>
-      <ion-label>Email:</ion-label>
+      <ion-label>*Email:</ion-label>
       <ion-input type="email" name="email" [(ngModel)]="email"></ion-input>
 
       <p *ngIf="creationError" class="error-message">{{phoneErrorMessage}}</p>
@@ -36,8 +45,7 @@
       <ion-label>Número de registro:</ion-label>
       <ion-input type="text" name="regNumber" [(ngModel)]="regNumber"></ion-input>
 
-      <p *ngIf="creationError" class="error-message">{{nifErrorMessage}}</p>
-      <ion-label>*NIF:</ion-label>
+      <ion-label>NIF:</ion-label>
       <ion-input type="text" name="nif" [(ngModel)]="nif"></ion-input>
     </form> 
   </div>

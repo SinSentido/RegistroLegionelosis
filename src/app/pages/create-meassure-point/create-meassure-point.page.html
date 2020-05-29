@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Crear punto de medida</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="water-outline"></ion-icon>
+    <h4><ion-icon name="business-outline"></ion-icon> {{companie.name}}</h4>
+  </div>
+
+  <div class="content">
+    <h5>Es importante que el nombre y la descripción sean lo más ajustado posible para una mejor identificación.</h5>
+
+    <form>
+      <p *ngIf="creationError"  class="error-message">{{nameErrorMessage}}</p>
+      <ion-label>*Nombre:</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="name"></ion-input>
+
+      <p *ngIf="creationError"  class="error-message">{{descriptionErrorMessage}}</p>
+      <ion-label>*Descripción:</ion-label>
+      <ion-input type="text" name="description" [(ngModel)]="description"></ion-input>
+    </form>
+  </div>
+
+  <button class="create-button" (click)="createMeassurePoint()" >
+    <h2>Crear</h2>
+  </button>
+</ion-content> 

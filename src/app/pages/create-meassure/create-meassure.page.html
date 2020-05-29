@@ -1,37 +1,39 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
-    <br>
-    <h2>Nueva medida</h2>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar medida</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-    <!-- while loading -->
-    <div *ngIf="loadingData" class="loading-data">
-      <p>Cargando</p>
-      <ion-spinner name="dots" color="success"></ion-spinner>
-    </div>
-
-    <!-- if data is empty -->
-    <div *ngIf="companie == null && !loadingData" class="empty-view">
-      <h2>No hay ninguna empresa seleccionada.</h2>
-      <ion-button (click)="navigateToSelectCompanies()">Seleccionar empresa</ion-button>
-    </div>
+  <div class="header">
+    <ion-icon class="page-logo" name="add-circle-outline"></ion-icon>
+    <h4><ion-icon name="business-outline"></ion-icon> {{companie.name}}</h4>
+    <h4><ion-icon name="water-outline"></ion-icon> {{meassurePoint.name}}</h4>
+  </div>
 
     <div class="content" *ngIf="companie != null" >
-      <h3>{{companie.name}}</h3>
-  
+      <h5>{{meassurePoint.description}}</h5>
+
       <form>
         <p *ngIf="creationError" class="error-message">{{dateErrorMessage}}</p>
         <ion-label>*Fecha:</ion-label>
-        <ion-datetime displayFormat="DD / MM / YY" name="date" [(ngModel)]="date"></ion-datetime>
+        <ion-datetime displayFormat="DD / MM / YYYY" name="date" [(ngModel)]="date"></ion-datetime>
   
         <p *ngIf="creationError" class="error-message">{{temperatureErrorMessage}}</p>
         <ion-label>*Temperatura:</ion-label>
         <ion-input type="text" name="temperature" [(ngModel)]="temperature"></ion-input>
+
+        <p *ngIf="creationError" class="error-message">{{chlorineErrorMessage}}</p>
+        <ion-label>*Nivel de cloro:</ion-label>
+        <ion-input type="text" name="chlorine" [(ngModel)]="chlorine"></ion-input>
   
-        <ion-label>*Descripción:</ion-label>
+        <ion-label>Descripción:</ion-label>
         <ion-input type="text" name="description" [(ngModel)]="description"></ion-input>
       </form> 
     </div>

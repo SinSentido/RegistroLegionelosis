@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Nueva medida</ion-title>
+    <ion-title>Puntos de medida</ion-title> 
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -14,7 +14,7 @@
   <div class="header">
     <ion-icon class="page-logo" name="water-outline"></ion-icon>
     <h4><ion-icon name="business-outline"></ion-icon> {{companie.name}}</h4>
-    <h4>Selecciona un punto de medida</h4>
+    <h4>Puntos de medida</h4>
   </div>
 
   <div class="content">
@@ -32,12 +32,16 @@
 
     <!-- show data -->
     <div *ngIf="meassurePoints.length > 0" class="meassure-points-container">
-      <div class="meassure-point" *ngFor="let meassurePoint of meassurePoints" (click)="navigateToCreateMeassure(meassurePoint)">
+      <div class="meassure-point" *ngFor="let meassurePoint of meassurePoints">
         <div class="card-content">
-          <h3>{{meassurePoint.name}}</h3>
-          <h5>{{meassurePoint.description}}</h5>
-          <h5 class="pending" *ngIf="meassurePoint.lastMeassure != today">PENDIENTE</h5>
-          <h5 class="done" *ngIf="meassurePoint.lastMeassure == today">HECHA</h5>
+          <p><strong><ion-icon name="water-outline"></ion-icon> Nombre:</strong> {{meassurePoint.name}}</p>
+          <p><strong><ion-icon name="chatbubbles-outline"></ion-icon> Descripción:</strong> {{meassurePoint.description}}</p>
+          <p><strong><ion-icon name="today-outline"></ion-icon> Ultima medida:</strong> {{meassurePoint.lastMeassure}}</p>
+          <div class="buttons">
+            <button class="btn-view-meassures"><ion-icon name="eye-outline"></ion-icon> Medidas</button>
+            <button class="btn-edit-meassure-point"><ion-icon name="create-outline"></ion-icon> Editar</button>
+            <button (click)="alertConfirmDelete(meassurePoint)" class="btn-delete-meassure-point"><ion-icon name="trash-outline"></ion-icon> Eliminar</button>
+          </div>
         </div>
       </div>
     </div>

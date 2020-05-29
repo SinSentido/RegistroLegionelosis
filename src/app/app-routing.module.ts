@@ -34,6 +34,30 @@ const routes: Routes = [
   {
     path: 'select-meassure-point',
     loadChildren: () => import('./pages/select-meassure-point/select-meassure-point.module').then( m => m.SelectMeassurePointPageModule)
+  },
+  {
+    path: 'create-meassure-point',
+    loadChildren: () => import('./pages/create-meassure-point/create-meassure-point.module').then( m => m.CreateMeassurePointPageModule)
+  },
+  {
+    path: 'manage-companies',
+    loadChildren: () => import('./pages/manage-companies/manage-companies.module').then( m => m.ManageCompaniesPageModule)
+  },
+  {
+    path: 'companie-info',
+    loadChildren: () => import('./pages/companie-info/companie-info.module').then( m => m.CompanieInfoPageModule)
+  },
+  {
+    path: 'manage-meassure-points',
+    loadChildren: () => import('./pages/manage-meassure-points/manage-meassure-points.module').then( m => m.ManageMeassurePointsPageModule)
+  },
+  {
+    path: 'manage-meassures',
+    loadChildren: () => import('./pages/manage-meassures/manage-meassures.module').then( m => m.ManageMeassuresPageModule)
+  },
+  {
+    path: 'edit-companie',
+    loadChildren: () => import('./pages/edit-companie/edit-companie.module').then( m => m.EditCompaniePageModule)
   }
 ];
 

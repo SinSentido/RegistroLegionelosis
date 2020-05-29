@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar empresa</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="business-outline"></ion-icon>
+    <h2>{{companie.name}}</h2>
+  </div>
+
+  <div class="content">
+    <form>
+      <p *ngIf="editError" class="error-message">{{nameErrorMessage}}</p>
+      <p><strong><ion-icon name="business-outline"></ion-icon> Nombre:</strong></p>
+      <ion-input type="text" name="name" [(ngModel)]="name" value={{companie.name}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{ownerErrorMessage}}</p>
+      <p><strong><ion-icon name="person-outline"></ion-icon> Propietario:</strong></p>
+      <ion-input type="text" name="owner" [(ngModel)]="owner" value={{companie.owner}}></ion-input>
+
+      <p><strong><ion-icon name="people-outline"></ion-icon> Representante:</strong></p>
+      <ion-input type="text" name="representant" [(ngModel)]="representant" value={{companie.representant}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{phoneErrorMessage}}</p>
+      <p><strong><ion-icon name="call-outline"></ion-icon> Teléfono:</strong></p>
+      <ion-input type="text" name="phone" [(ngModel)]="phone" value={{companie.phone}}></ion-input>
+
+      <p><strong><ion-icon name="file-tray-full-outline"></ion-icon> Fax:</strong></p>
+      <ion-input type="text" name="fax" [(ngModel)]="fax" value={{companie.fax}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{emailErrorMessage}}</p>
+      <p><strong><ion-icon name="mail-outline"></ion-icon> Email:</strong></p>
+      <ion-input type="email" name="email" [(ngModel)]="email" value={{companie.email}}></ion-input>
+
+      <p><strong><ion-icon name="document-attach-outline"></ion-icon> Nº Registro:</strong></p>
+      <ion-input type="text" name="regNumber" [(ngModel)]="regNumber" value={{companie.regNumber}}></ion-input>
+
+      <p><strong><ion-icon name="finger-print-outline"></ion-icon> NIF:</strong></p>
+      <ion-input type="text" name="nif" [(ngModel)]="nif" value={{companie.nif}}></ion-input>
+    </form>
+
+    <hr>
+
+    <p (click)="alertConfirmRestoreData()" class="restore-data"><ion-icon name="refresh-outline"></ion-icon> Restablecer datos por defecto</p>
+  </div>
+  <button (click)="alertConfirmEditCompanie()" class="create-button">
+    <h2>Guardar cambios</h2>
+  </button>
+
+</ion-content>
