@@ -37,7 +37,7 @@ export class ManageCompaniesPage implements OnInit {
     this.loadCompanies();
   }
 
-  loadCompanies(){
+  private loadCompanies(){
     this.companies = [];
     
     this.localStorage.getUserId().then(userId => {

@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>reports</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Informes</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="document-text-outline"></ion-icon>
+    <h4>Informes</h4>
+  </div>
+  
+  <div class="content">
+    <p>Elige una empresa y un punto de medida para generar un documento con todas sus mediciones.</p>
 
+    <form action="">
+      <ion-label>Empresa:</ion-label>
+      <ion-select name="selectCompanie" [(ngModel)]="selectCompanie" placeholder="Selecciona una empresa" (ionChange)="loadMeassurePoints()">
+        <ion-select-option *ngFor="let companie of companies"  value="{{companie.companieId}}">{{companie.name}}</ion-select-option>
+      </ion-select>
+
+      <ion-label>Punto de medida:</ion-label>
+      <ion-select name="selectMeassurePoint" [(ngModel)]="selectMeassurePoint" placeholder="Seleccion un punto de medida">
+        <ion-select-option value="all">Todos los puntos de medida</ion-select-option>
+        <ion-select-option *ngFor="let meassurePoint of meassurePoints"  value={{meassurePoint.meassurePointId}}>{{meassurePoint.name}}</ion-select-option>
+      </ion-select>
+    </form>
+  </div>
+
+  <div class="create-report" (click)="createReport()">
+    <h3>Crear documento</h3>
+  </div>
 </ion-content>

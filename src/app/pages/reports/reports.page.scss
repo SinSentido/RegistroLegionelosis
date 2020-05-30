@@ -1,0 +1,58 @@
+ion-toolbar{
+    --background: #093652;
+    color: white;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #093652;
+    color: white;
+    height: 25%;
+    padding: 5%;
+}
+
+.header h4{
+    margin-bottom: 0;
+}
+
+.page-logo{
+    font-size: 3rem;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 65%;
+    max-height: 65%;
+    width: 100%;
+    background-color: white;
+}
+
+.content p{
+    text-align: justify;
+    padding: 5%;
+    border-bottom: 1px solid #093652;
+}
+
+form{
+    width: 100%;
+    padding: 5%;
+}
+
+ion-select{
+    margin-bottom: 10%;
+    border-bottom: 1px solid black;
+}
+
+.create-report{
+    background-color: #29c67b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    min-height: 10%;
+}

@@ -21,8 +21,11 @@ import { environment } from 'src/environments/environment';
 //firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireDatabaseModule } from '@angular/fire/database'
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
+//files
+import { File } from '@ionic-native/file/ngx';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -35,14 +38,15 @@ import { AngularFireDatabaseModule } from '@angular/fire/database'
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule, 
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativePageTransitions,
-
+    File,
+    FileOpener
   ],
   bootstrap: [AppComponent]
 })
