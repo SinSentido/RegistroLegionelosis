@@ -109,7 +109,7 @@ export class ReportsPage implements OnInit {
         var binaryArray = utf8.buffer;
         var blob = new Blob([binaryArray], {type: 'application/pdf'});
 
-        this.file.writeFile(this.file.dataDirectory, 'registro.pdf', blob).then(fileEntry => {
+        this.file.writeFile(this.file.dataDirectory, 'registro.pdf', blob, {replace: true}).then(fileEntry => {
           this.fileOpener.open(this.file.dataDirectory + 'registro.pdf', 'application/pdf');
         });
       });

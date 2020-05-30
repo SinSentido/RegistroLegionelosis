@@ -23,4 +23,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/manage-companies']);
   }
 
+  navigateToReports(){
+    this.router.navigate(['/reports']);
+  }
+
 }
