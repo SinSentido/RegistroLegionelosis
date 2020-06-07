@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="person-outline"></ion-icon>
+    <h2>Tu perfil</h2>
+  </div>
+
+  <div class="content">
+    <form>
+      <p><strong><ion-icon name="person-outline"></ion-icon> Nombre:</strong></p>
+      <ion-input type="text" name="name" [(ngModel)]="name" value={{user.name}}></ion-input>
+
+      <p><strong><ion-icon name="person-outline"></ion-icon> Apellidos:</strong></p>
+      <ion-input type="text" name="owner" [(ngModel)]="surname" value={{user.surname}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{emailErrorMessage}}</p>
+      <p><strong><ion-icon name="mail-outline"></ion-icon> Email:</strong></p>
+      <ion-input type="text" name="email" [(ngModel)]="email" value={{user.email}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{phoneErrorMessage}}</p>
+      <p><strong><ion-icon name="call-outline"></ion-icon> Teléfono:</strong></p>
+      <ion-input type="text" name="phone" [(ngModel)]="phone" value={{user.phone}}></ion-input>
+
+      <p><strong><ion-icon name="finger-print-outline"></ion-icon> NIF:</strong></p>
+      <ion-input type="text" name="fax" [(ngModel)]="nif" value={{user.nif}}></ion-input>
+    </form>
+
+    <hr>
+
+    <p (click)="alertConfirmRestoreData()" class="restore-data"><ion-icon name="refresh-outline"></ion-icon> Restablecer datos por defecto</p>
+  </div>
+  <button (click)="alertConfirmEditCompanie()" class="create-button">
+    <h2>Guardar cambios</h2>
+  </button>
+
+</ion-content>

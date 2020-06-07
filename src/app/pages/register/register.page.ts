@@ -7,12 +7,17 @@ import { AccountService } from '../../services/account/account.service';
 import { DatabaseService } from '../../services/database/database.service';
 import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
+//dto
+import { User } from '../../dto/User';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage implements OnInit {
+
+  user: User = new User();
 
   email: string;
   password: string;
@@ -34,8 +39,10 @@ export class RegisterPage implements OnInit {
 
   register(){
     if(this.validateRegisterForm()){
-      this.accountService.signupUser(this.email, this.password)
-      .then(res => {
+      this.accountService.signupUser(this.email, this.password).then(res => {
+        console.log(res);
+        this.user.email = res['user']['email'];
+        this.databaseService.createUser(res.user.uid, this.user);
         this.localStorageService.saveUserId(res.user.uid);
         this.accountService.sendVerificationEmail();
         this.loading = false;

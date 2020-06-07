@@ -5,6 +5,7 @@ import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { Companie } from './../../dto/Companie';
 import { MeassurePoint } from '../../dto/MeassurePoint';
 import { Meassure } from './../../dto/Meassure';
+import { User } from '../../dto/User';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,18 @@ export class DatabaseService {
     this.updateMeassurePoint(meassurePoint.meassurePointId, meassurePoint);
   }
 
+  //adds a new meassure to the database
   createMeassure(meassure: Meassure){
     let key = this.fireDatabase.list("meassures").push(meassure).key;
     meassure.meassureId = key;
     this.updateMeassure(meassure.meassureId, meassure);
+  }
+
+  //adds a new user to the datab
+  createUser(userUID: string, user: User){
+    let key = this.fireDatabase.database.ref("users/" + userUID).set(user).then(res => {
+      console.log(res);
+    });
   }
 
   //get all the companies of a user specified by param
@@ -52,6 +61,11 @@ export class DatabaseService {
   getMeassuresOfMeassurePointByDate(meassurePointId: string, date: string): AngularFireList<Meassure>{
     return this.fireDatabase.list("meassures",
       ref => ref.orderByChild("meassurePointId").equalTo(meassurePointId));
+  }
+
+  getUserById(userID: string): AngularFireList<User>{
+    return this.fireDatabase.list('users', 
+      ref => ref.orderByKey().equalTo(userID));
   }
 
   //updates
@@ -77,6 +91,14 @@ export class DatabaseService {
     }).catch(error => {
       console.log(error);
     })
+  }
+
+  updateUser(userId: string, user: User){
+    this.fireDatabase.database.ref('users/' + userId).set(user).then(res => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
+    });
   }
 
   //deletes

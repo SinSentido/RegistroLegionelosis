@@ -59,7 +59,7 @@ export class EditCompaniePage implements OnInit {
   //alert
   async alertConfirmRestoreData() {
     const alert = await this.alertController.create({
-    header: 'Borrar empresa',
+    header: 'Descartar cambios',
     message: '¿Está seguro de que quiere restablecer los datos por defecto? Perderá todos los datos que no haya guardado.',
     buttons: [
       {
@@ -93,17 +93,6 @@ export class EditCompaniePage implements OnInit {
       ]
     });
     await alert.present();
-  }
-
-  private restoreData(){
-    this.name = this.companie.name;
-    this.owner = this.companie.owner;
-    this.representant = this.companie.representant;
-    this.phone = this.companie.phone;
-    this.fax = this.companie.fax;
-    this.email = this.companie.email;
-    this.regNumber = this.companie.regNumber;
-    this.nif = this.companie.nif;
   }
 
   private editCompanie(){
@@ -184,5 +173,16 @@ export class EditCompaniePage implements OnInit {
     this.ownerErrorMessage = "";
     this.phoneErrorMessage = "";
     this.emailErrorMessage = "";
+  }
+
+  private restoreData(){
+    this.name = this.companie.name;
+    this.owner = this.companie.owner;
+    this.representant = this.companie.representant;
+    this.phone = this.companie.phone;
+    this.fax = this.companie.fax;
+    this.email = this.companie.email;
+    this.regNumber = this.companie.regNumber;
+    this.nif = this.companie.nif;
   }
 }

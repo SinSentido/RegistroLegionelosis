@@ -39,7 +39,7 @@
           <p><strong><ion-icon name="today-outline"></ion-icon> Ultima medida:</strong> {{meassurePoint.lastMeassure}}</p>
           <div class="buttons">
             <button class="btn-view-meassures"><ion-icon name="eye-outline"></ion-icon> Medidas</button>
-            <button class="btn-edit-meassure-point"><ion-icon name="create-outline"></ion-icon> Editar</button>
+            <button (click)="navigateToEditMeassurePoint(meassurePoint)" class="btn-edit-meassure-point"><ion-icon name="create-outline"></ion-icon> Editar</button>
             <button (click)="alertConfirmDelete(meassurePoint)" class="btn-delete-meassure-point"><ion-icon name="trash-outline"></ion-icon> Eliminar</button>
           </div>
         </div>

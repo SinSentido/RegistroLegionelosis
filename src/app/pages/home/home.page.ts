@@ -27,4 +27,8 @@ export class HomePage implements OnInit {
     this.router.navigate(['/reports']);
   }
 
+  navigateToUserInfo(){
+    this.router.navigate(['/user-info']);
+  }
+
 }

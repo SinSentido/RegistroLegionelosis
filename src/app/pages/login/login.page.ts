@@ -43,6 +43,11 @@ export class LoginPage implements OnInit {
     private localStorage: LocalStorageService) { }
 
   ngOnInit() {
+    this.localStorage.getUserId().then(userId => {
+      if(userId != "" && userId != null){
+        this.navigateToHome();
+      }
+    });
   }
 
   login(){

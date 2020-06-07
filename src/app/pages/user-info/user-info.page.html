@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="person-outline"></ion-icon>
+    <h2>Tu perfil</h2>
+    <p (click)="navigateToEditUser()" class="edit-companie"><ion-icon name="create-outline"></ion-icon> Editar usuario</p>
+  </div>
+
+  <div class="content" *ngIf="!loadingData" >
+    <p><strong><ion-icon name="person-outline"></ion-icon> Nombre:</strong> {{user.name}}</p>
+    <p><strong><ion-icon name="person-outline"></ion-icon> Apellidos:</strong> {{user.surname}}</p>
+    <p><strong><ion-icon name="call-outline"></ion-icon> Teléfono:</strong> {{user.phone}}</p>
+    <p><strong><ion-icon name="mail-outline"></ion-icon> Email:</strong> {{user.email}}</p>
+    <p><strong><ion-icon name="finger-print-outline"></ion-icon> NIF:</strong> {{user.nif}}</p>
+
+    <p (click)="closeSession()" class="close-session">Salir y cerrar sesión</p>
+
+    <hr>
+  </div>
+
+</ion-content>

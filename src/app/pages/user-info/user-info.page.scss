@@ -1,0 +1,66 @@
+ion-toolbar{
+    --background: #093652;
+    color: white;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #093652;
+    color: white;
+    height: 28%;
+    padding: 5%;
+}
+
+.header h2{
+    margin-bottom: 0;
+}
+
+.header p{
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+.page-logo{
+    font-size: 3rem;
+}
+
+.edit-companie{
+    color: black;
+    background-color: #29c67b;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 72%;
+    max-height: 72%; 
+    width: 100%;
+    background-color: white;
+    padding: 5%;
+    overflow: scroll;
+}
+
+.content ion-icon{
+    font-size: 1.5rem;
+}
+
+.content button{
+    color: white;
+    background-color: #093652;
+    padding: 2%;
+    margin: 3% 0;
+}
+
+.close-session{
+    color: red;
+    font-size: 1.2rem;
+    padding: 8% 0;
+    margin: 0;
+    text-decoration: underline;
+}

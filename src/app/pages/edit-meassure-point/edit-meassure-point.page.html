@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Editar punto de medida</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="header">
+    <ion-icon class="page-logo" name="business-outline"></ion-icon>
+    <h2>{{companie.name}}</h2>
+  </div>
+
+  <div class="content">
+    <form>
+      <p *ngIf="editError" class="error-message">{{nameErrorMessage}}</p>
+      <p><strong><ion-icon name="business-outline"></ion-icon> Nombre:</strong></p>
+      <ion-input type="text" name="name" [(ngModel)]="name" value={{meassurePoint.name}}></ion-input>
+
+      <p *ngIf="editError" class="error-message">{{descriptionErrorMessage}}</p>
+      <p><strong><ion-icon name="person-outline"></ion-icon> Propietario:</strong></p>
+      <ion-input type="text" name="description" [(ngModel)]="description" value={{meassurePoint.description}}></ion-input>
+    </form>
+
+    <hr>
+
+    <p (click)="alertConfirmRestoreData()" class="restore-data"><ion-icon name="refresh-outline"></ion-icon> Restablecer datos por defecto</p>
+  </div>
+  <button (click)="alertConfirmEditMeassurePoint()" class="create-button">
+    <h2>Guardar cambios</h2>
+  </button>
+
+</ion-content>

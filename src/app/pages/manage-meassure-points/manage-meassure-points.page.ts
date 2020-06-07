@@ -49,10 +49,22 @@ export class ManageMeassurePointsPage implements OnInit {
     this.nativePageTransitions.slide(options);
     this.router.navigate(['/create-meassure-point']);
   }
+  
+  navigateToEditMeassurePoint(meassurePoint: MeassurePoint){
+    this.dataService.setMeassurePoint(meassurePoint)
+
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 400,
+    }
+
+    this.nativePageTransitions.slide(options);
+    this.router.navigate(['/edit-meassure-point']);
+  }
 
   async alertConfirmDelete(meassurePoint: MeassurePoint) {
     const alert = await this.alertController.create({
-    header: 'Borrar empresa',
+    header: 'Borrar punto de medida',
     message: '¿Está seguro de que quiere borrar ' + meassurePoint.name + '? Perderá toda la información relacionada con el punto de medida.',
     buttons: [
       {
