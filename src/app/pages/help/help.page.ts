@@ -17,4 +17,8 @@ export class HelpPage implements OnInit {
     this.router.navigate(['/about-legionella']);
   }
 
+  navigateToRegulation(){
+    this.router.navigate(['/regulation']);
+  }
+
 }

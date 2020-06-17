@@ -36,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
   navigateToSettings(){
-
+    this.router.navigate(['/construction']);
   }
 
   navigateToInfo(){
