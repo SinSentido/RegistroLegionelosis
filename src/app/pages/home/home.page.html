@@ -31,12 +31,12 @@
       </div>
 
       <!-- second line -->
-      <div class="option mid-left">
+      <div (click)="navigateToCalendar()" class="option mid-left">
         <ion-icon name="today-outline"></ion-icon>
         <p>Calendario</p>
       </div>
 
-      <div class="option mid-center">
+      <div (click)="navigateToStatistics()" class="option mid-center">
         <ion-icon name="bar-chart-outline"></ion-icon>
         <p>Estadísticas</p>
       </div>
@@ -52,12 +52,12 @@
         <p>Ajustes</p>
       </div>
 
-      <div class="option bot-center">
+      <div (click)="navigateToInfo()" class="option bot-center">
         <ion-icon name="information-outline"></ion-icon>
         <p>Información</p>
       </div>
 
-      <div class="option bot-right">
+      <div (click)="navigateToHelp()" class="option bot-right">
         <ion-icon name="help-outline"></ion-icon>
         <p>Ayuda</p>
       </div>

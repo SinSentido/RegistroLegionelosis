@@ -31,4 +31,24 @@ export class HomePage implements OnInit {
     this.router.navigate(['/user-info']);
   }
 
+  navigateToCalendar(){
+    this.router.navigate(['/construction']);
+  }
+
+  navigateToSettings(){
+
+  }
+
+  navigateToInfo(){
+    this.router.navigate(['/info']);
+  }
+
+  navigateToHelp(){
+    this.router.navigate(['/help']);
+  }
+
+  navigateToStatistics(){
+    this.router.navigate(['/construction']);
+  }
+
 }

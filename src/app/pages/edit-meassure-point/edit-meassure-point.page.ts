@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { AlertController } from '@ionic/angular';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { NavController } from '@ionic/angular';
 
 //services
-import { AccountService } from '../../services/account/account.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
@@ -34,12 +29,8 @@ export class EditMeassurePointPage implements OnInit {
   nameErrorMessage: string = "";
   descriptionErrorMessage: string = "";
 
-  constructor(private router: Router,
-    private nativePageTransitions: NativePageTransitions,
-    private databaseService: DatabaseService,
-    private accountService: AccountService,
+  constructor(private databaseService: DatabaseService,
     private alertController: AlertController,
-    private localStorage: LocalStorageService,
     private dataService: DataServiceService,
     private navCtrl: NavController) { }
 

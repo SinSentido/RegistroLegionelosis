@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Platform } from '@ionic/angular';
-import { trigger, state, style, animate, transition } from '@angular/animations';
-import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 
@@ -11,10 +8,8 @@ import pdfFonts from 'pdfmake/build/vfs_fonts';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 //services
-import { AccountService } from '../../services/account/account.service';
 import { DatabaseService } from '../../services/database/database.service';
 import { LocalStorageService } from '../../services/local-storage/local-storage.service';
-import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
 import { Companie } from '../../dto/Companie';
@@ -41,12 +36,8 @@ export class ReportsPage implements OnInit {
   report = null;
   loadingReport = false;
 
-  constructor(private router: Router,
-    private nativePageTransitions: NativePageTransitions,
-    private databaseService: DatabaseService,
-    private accountService: AccountService,
+  constructor(private databaseService: DatabaseService,
     private localStorage: LocalStorageService,
-    private dataService: DataServiceService,
     private platform: Platform,
     private file: File,
     private fileOpener: FileOpener) { }

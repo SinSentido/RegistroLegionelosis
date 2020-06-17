@@ -1,0 +1,40 @@
+ion-toolbar{
+    --background: #093652;
+    color: white;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #093652;
+    color: white;
+    height: 25%;
+    padding: 5%;
+}
+
+.page-logo{
+    font-size: 3rem;
+}
+
+.header h2{
+    margin-bottom: 0;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    min-height: 75%;
+    max-height: 75%; 
+    width: 100%;
+    background-color: white;
+    overflow: scroll;
+}
+
+.help-section{
+    margin: 0;
+    padding: 5% 5%;
+    border-bottom: 1px solid #093652;
+}

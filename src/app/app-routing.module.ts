@@ -74,6 +74,26 @@ const routes: Routes = [
   {
     path: 'edit-user',
     loadChildren: () => import('./pages/edit-user/edit-user.module').then( m => m.EditUserPageModule)
+  },
+  {
+    path: 'construction',
+    loadChildren: () => import('./pages/construction/construction.module').then( m => m.ConstructionPageModule)
+  },
+  {
+    path: 'info',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'help',
+    loadChildren: () => import('./pages/help/help.module').then( m => m.HelpPageModule)
+  },
+  {
+    path: 'about-legionella',
+    loadChildren: () => import('./pages/help-pages/about-legionella/about-legionella.module').then( m => m.AboutLegionellaPageModule)
+  },
+  {
+    path: 'regulation',
+    loadChildren: () => import('./pages/help-pages/regulation/regulation.module').then( m => m.RegulationPageModule)
   }
 ];
 

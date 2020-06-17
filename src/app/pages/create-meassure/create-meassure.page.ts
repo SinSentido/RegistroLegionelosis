@@ -2,7 +2,6 @@ import { MeassurePoint } from './../../dto/MeassurePoint';
 import { Meassure } from './../../dto/Meassure';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { AlertController } from '@ionic/angular';
 
@@ -39,7 +38,6 @@ export class CreateMeassurePage implements OnInit {
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private dataService: DataServiceService,
-    private alertController: AlertController
   ) { }
 
   ngOnInit() {
@@ -76,7 +74,7 @@ export class CreateMeassurePage implements OnInit {
 
     this.nativePageTransitions.slide(options);
     this.router.navigate(['/select-companie']);
-  }
+  } 
 
   private validateForm(): boolean{
     let isValid = true;

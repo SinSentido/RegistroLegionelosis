@@ -1,6 +1,4 @@
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { AlertController } from '@ionic/angular';
 import { NavController } from '@ionic/angular';
@@ -37,7 +35,6 @@ export class CreateCompaniePage implements OnInit {
   loading: boolean = false;
 
   constructor(
-    private router: Router,
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
     private localStorage: LocalStorageService,
@@ -73,7 +70,7 @@ export class CreateCompaniePage implements OnInit {
     }
   }
 
-  validateForm(): boolean{
+  private validateForm(): boolean{
     this.loading = true;
     this.resetErrorMessages();
     let isValid = true;
@@ -98,7 +95,7 @@ export class CreateCompaniePage implements OnInit {
     return isValid;
   }
 
-  navigateToSelectCompanies(){
+  private navigateToSelectCompanies(){
     let options: NativeTransitionOptions = {
       direction: 'down',
       duration: 400,

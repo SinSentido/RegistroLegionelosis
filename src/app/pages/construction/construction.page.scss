@@ -1,0 +1,19 @@
+ion-toolbar{
+    --background: #093652;
+    color: white;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    background-color: white;
+    padding: 0 5%;
+}
+
+.content img{
+    width: 35%;
+}

@@ -1,6 +1,5 @@
 import { AccountService } from './../../services/account/account.service';
 import { Component, OnInit } from '@angular/core';
-import { error } from 'protractor';
 
 @Component({
   selector: 'app-recover-password',
@@ -36,7 +35,7 @@ export class RecoverPasswordPage implements OnInit {
     }
   }
 
-  validateEmail(): boolean {
+  private validateEmail(): boolean {
     this.emailErrorMessage = "";
     let isValid: boolean = false;
 

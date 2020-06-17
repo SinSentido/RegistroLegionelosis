@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions/ngx';
 import { AlertController } from '@ionic/angular';
 
 //services
-import { AccountService } from '../../services/account/account.service';
 import { DatabaseService } from '../../services/database/database.service';
-import { LocalStorageService } from '../../services/local-storage/local-storage.service';
 import { DataServiceService } from '../../services/data-service/data-service.service';
 
 //classes
@@ -29,8 +26,6 @@ export class ManageMeassurePointsPage implements OnInit {
   constructor(private router: Router,
     private nativePageTransitions: NativePageTransitions,
     private databaseService: DatabaseService,
-    private accountService: AccountService,
-    private localStorage: LocalStorageService,
     private dataService: DataServiceService,
     private alertController: AlertController) { }
 
